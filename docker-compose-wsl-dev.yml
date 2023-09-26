@@ -1,0 +1,23 @@
+services:
+  devenv:
+    build: ./devenv/
+    volumes:
+      - .:/hostcode:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /run/desktop/mnt/host/wslg/.X11-unix:/tmp/.X11-unix
+      - /run/desktop/mnt/host/wslg:/mnt/wslg
+      - simpleoaicode:/code:rw
+      - simpleoaienv:/emacsfiles:rw
+    environment:
+      DISPLAY: :0 
+      WAYLAND_DISPLAY: wayland-0 
+      XDG_RUNTIME_DIR: /mnt/wslg/runtime-dir 
+      PULSE_SERVER: /mnt/wslg/PulseServer 
+      EMACSVOLUME: /emacsfiles 
+  
+
+volumes:
+  simpleoaicode:
+    external: true
+  simpleoaienv:
+    external: true
