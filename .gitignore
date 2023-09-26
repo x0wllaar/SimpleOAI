@@ -24,3 +24,6 @@ tmp/
 
 # Go workspace file
 go.work
+
+#Project executable
+simpleoai*
